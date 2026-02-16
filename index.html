@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <title>EduTest Pro - Test Platformasi</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <!-- Header -->
+    <header>
+      <h1>📚 EduTest Pro</h1>
+      <p>Bilimingizni tekshiring va o'zlashtiring</p>
+    </header>
+
+    <!-- Fanni tanlash sahifasi -->
+    <div id="subjectPage">
+      <div class="subjects">
+        <div class="card" onclick="startTest('english')">
+          <span style="font-size:2.8rem;">🇬🇧</span>
+          <h3>Ingliz tili</h3>
+          <small>30 savol</small>
+        </div>
+        <div class="card" onclick="startTest('math')">
+          <span style="font-size:2.8rem;">🔢</span>
+          <h3>Matematika</h3>
+          <small>30 savol</small>
+        </div>
+        <div class="card" onclick="startTest('uzbek')">
+          <span style="font-size:2.8rem;">🇺🇿</span>
+          <h3>O'zbek tili</h3>
+          <small>30 savol</small>
+        </div>
+        <div class="card" onclick="startTest('russian')">
+          <span style="font-size:2.8rem;">🇷🇺</span>
+          <h3>Rus tili</h3>
+          <small>30 savol</small>
+        </div>
+      </div>
+    </div>
+
+    <!-- Test oyna (boshlanganda shu ko'rinadi) -->
+    <div id="testPage" class="hidden">
+      <div id="timer"></div>
+      <div class="progress">
+        <div class="progress-bar" id="progressBar"></div>
+      </div>
+      <div class="test-box">
+        <div id="questionNumber" class="test-qnum"></div>
+        <div id="question"></div>
+        <div class="options" id="optionsContainer"></div>
+        <div class="status" id="status"></div>
+        <div style="margin-top: 20px; display: flex; gap: 10px; justify-content: space-between;">
+          <button class="option" onclick="prevQ()" id="prevBtn" style="background:#f59e0b;flex:1;">← Oldingi</button>
+          <button class="option" onclick="nextQ()" id="nextBtn" style="background:#22c55e;flex:1;">Keyingi →</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Test natijasi -->
+    <div id="resultPage" class="hidden">
+      <div class="test-box" style="text-align:center">
+        <h2 style="margin-bottom:20px;">🎉 Test yakuni!</h2>
+        <div style="font-size:3rem; margin:20px 0; font-weight:bold;">
+          <span id="scorePercentage">0%</span>
+        </div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-bottom:15px;">
+          <div style="background:rgba(255,255,255,0.07);padding:15px;border-radius:8px;">
+            <p style="opacity:.8;margin-bottom:8px;">To'g'ri javoblar</p>
+            <p id="correctAnswers" style="font-size:1.8rem;font-weight:bold;"></p>
+          </div>
+          <div style="background:rgba(255,255,255,0.07);padding:15px;border-radius:8px;">
+            <p style="opacity:.8;margin-bottom:8px;">Vaqt sarflandi</p>
+            <p id="timeSpent" style="font-size:1.8rem;font-weight:bold;"></p>
+          </div>
+        </div>
+        <p id="resultDesc" style="margin-bottom:30px;font-size:1.1rem;"></p>
+        <button class="option" onclick="showSubjects()" style="background:#22c55e;max-width:300px;margin:0 auto;display:block;">📚 Yana test yechish</button>
+      </div>
+      <div class="test-box detailed-results" id="detailedResults"></div>
+    </div>
+  </div>
+
+  <footer>
+    <p>© 2026 EduTest Pro | Bepul Ta'lim Platformasi</p>
+  </footer>
+
+  <script src="data.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
